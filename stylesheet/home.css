@@ -1,0 +1,52 @@
+
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+footer
+{
+    margin-top: auto;
+}
+
+
+nav
+{
+    background-color: #1d1c1c;
+}
+
+.navbar-li
+{
+    color: white;
+}
+
+.navbar-li-btn
+{
+
+}
+
+/*
+.background
+{
+    background-image: url('../img/background.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%;
+}
+*/
+
+ h3
+{
+    color: #ffffff;
+}
+
+
+.box
+{
+    z-index: 2;
+    /*background-color: rgba(0, 0, 0, .5);*/
+}

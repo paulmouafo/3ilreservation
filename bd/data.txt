@@ -1,0 +1,71 @@
+
+
+DELETE FROM `reservation`;
+DELETE FROM `horaire`;
+DELETE FROM `utilisateur`;
+DELETE FROM `salle`;
+DELETE FROM `creneau`;
+
+ALTER TABLE reservation AUTO_INCREMENT = 1;
+ALTER TABLE horaire AUTO_INCREMENT = 1;
+ALTER TABLE utilisateur AUTO_INCREMENT = 1;
+ALTER TABLE salle AUTO_INCREMENT = 1;
+ALTER TABLE creneau AUTO_INCREMENT = 1;
+
+-- table utilisateur ------------------------
+INSERT INTO `utilisateur` (`id`,`login`,`password`,`role`, `code_secret`) VALUES 
+(1, "test@3il.fr","test1","etudiant", "ZKA-XZB-YCR-DGF-WMK-FVX"),
+(2, "erat.eget.tincidunt@etrutrum.net","test2","etudiant", "ZKA-DGF-FVX-AAB-BAD-ACD"),
+(3, "non.bibendum@commodoipsumSuspendisse.net","test3","etudiant", "YCR-XZB-ZKA-ACD-BAD-AAB"),
+(4, "volutpat.Nulla@parturientmontes.net","test4","etudiant", "'WMK-DGF-YCR-XZB-ZKA-ACD"),
+(5, "ornare@egestasligulaNullam.ca","test5","etudiant", "OYC-FVX-WMK-DGF-YCR-XZB"),
+(6, "ut.ipsum@sapien.net","test6","etudiant", "FVX-WMK-DGF-YCR-XZB-ZKA"),
+(7, "sollicitudin.adipiscing@eleifendnec.co.uk","test7","etudiant", "DGF-YCR-XZB-ZKA-ACD-BAD"),
+(8, "varius.orci@risusMorbi.net","test8","etudiant", "DGF-WMK-YCR-XZB-ZKA-ACD"),
+(9, "tellus.eu@semsemper.net","test9","etudiant", "BAD-ACD-ZKA-ZKA-YCR-YCR"),
+(10, "admin@3il.fr","admin","admin", "BAD-ACD-ZKA-XZB-YCR-DGF");
+
+
+
+
+-- table salle ------------------------
+INSERT INTO `salle` (`id`,`numero`) VALUES 
+(1,100),
+(2,101),
+(3,102),
+(4,103),
+(5,104),
+(6,105),
+(7,106),
+(8,107),
+(9,108),
+(10,109);
+
+
+
+-- table creneau ------------------------
+INSERT INTO `creneau` (`id`,`heure_d`,`heure_f`) VALUES 
+(1,'08h00','10h00'),
+(2,'10h30','12h00'),
+(3,'13h30','15h00'),
+(4,'15h15','16h45');
+
+
+
+
+
+-- table horaire ------------------------
+INSERT INTO `horaire` (`id`,`idsalle`,`date`,`nbplace`,`creneau1`,`creneau2`,`creneau3`,`creneau4`) VALUES 
+(1,  1,  '2020-10-02', 18, 1,0,0,1),
+(2,  2,  '2020-10-02', 18,  1,1,1,1),
+(3,  3,  '2020-10-02', 18,  1,1,0,1),
+(4,  4,  '2020-10-03', 18,  1,0,1,1),
+(5,  5,  '2020-10-03', 18,  0,1,0,0),
+(6,  6,  '2020-10-03', 18,  1,0,0,1),
+(7,  7,  '2020-10-05', 18,  0,0,0,1),
+(8,  8,  '2020-10-05', 18,  1,1,1,1),
+(9,  9,  '2020-10-05', 18,  1,1,1,0),
+(10, 10, '2020-10-05', 18,  0,1,1,1);
+
+
+

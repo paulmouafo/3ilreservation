@@ -1,0 +1,62 @@
+
+DROP TABLE IF EXISTS `reservation`;
+DROP TABLE IF EXISTS `horaire`;
+DROP TABLE IF EXISTS `utilisateur`;
+DROP TABLE IF EXISTS `salle`;
+DROP TABLE IF EXISTS `creneau`;
+
+--  table utilisateur---------------- 
+
+CREATE TABLE utilisateur (
+            id          int             primary key 	not null    AUTO_INCREMENT,
+            login       varchar(255)    		not null    ,
+            password    varchar(255)    		not null    ,
+            role        varchar(8)      		not null    , 
+            code_secret varchar(255)      		not null     
+    );
+
+
+--  table salle ---------------- 
+
+CREATE TABLE salle (
+            id          int             primary key 	not null   AUTO_INCREMENT,
+            numero      int			    	not null     
+    );
+
+
+--  table creneau ---------------- 
+
+CREATE TABLE creneau (
+            id          int             primary key 	not null   AUTO_INCREMENT,
+            heure_d     varchar(10)			not null   ,
+            heure_f     varchar(10)			not null
+    );
+
+
+--  table horaire---------------- 
+
+CREATE TABLE horaire (
+            id          int           	not null    AUTO_INCREMENT,
+    	    idsalle	int		not null,
+            date     	DATE	   	not null,
+	    nbplace	int		not null,
+    	    creneau1	int 		not null,
+    	    creneau2	int 		not null,
+    	    creneau3	int 		not null,
+    	    creneau4	int 		not null,
+    	    PRIMARY KEY(id) ,
+    	    FOREIGN KEY(idSalle) REFERENCES salle(id)
+    );
+
+--  table reservation---------------- 
+
+CREATE TABLE reservation (
+            id          	int           	not null     AUTO_INCREMENT,
+    	    idutilisateur	INT		not null,
+    	    idsalle		INT		not null,
+    	    date		date		not null,
+    	    creneau		varchar(255)	not null,
+    	    PRIMARY KEY(id)       ,
+    	    FOREIGN KEY(idutilisateur) REFERENCES utilisateur(id) ,
+            FOREIGN KEY(idsalle) REFERENCES salle(id) 
+    );
